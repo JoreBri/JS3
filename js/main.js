@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const nombreUsuario = localStorage.getItem("nombreUsuario");
 
     if (nombreUsuario) {
-        nombreDelCliente.textContent = `Hola ${nombreUsuario}, te doy la bienvenida a Uñicornio.`;
+        nombreDelCliente.textContent = `Bienvenido a Uñicornio ${nombreUsuario}.`;
     } else {
         modal.style.display = "block";
     }
@@ -17,7 +17,7 @@ function guardarNombre() {
     if (nombre) {
         localStorage.setItem("nombreUsuario", nombre);
         console.log("nombre guardado en storage", nombre);
-        nombreDelCliente.textContent = `Hola ${nombreUsuario}, te doy la bienvenida a Uñicornio.`;
+        nombreDelCliente.textContent = `Bienvenido a Uñicornio ${nombre}`;
         cerrarModal();
     } else {
         console.log("Ingresa tu nombre");
