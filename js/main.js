@@ -191,5 +191,9 @@ const actualizarTotal = () => {
     const total = carrito.reduce((acc, serv) => acc + (serv.precio * serv.cantidad), 0);
     precioTotal.innerText = `$${total}`;
 }
+const calcularNumerito = () => {
+    const numeritoTotal = carrito.reduce((acc, prod) => acc + prod.cantidad, 0);
+    numerito.innerText = numeritoTotal;
+}
 
 actualizarCarrito();
