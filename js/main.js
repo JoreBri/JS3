@@ -1,3 +1,15 @@
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("enviar").addEventListener("click", function() {
+        // Obtiene el valor del input
+        var nombre = document.getElementById("Nombre").value;
+        
+        // Actualiza el título de la página
+        document.tituloPrincipal = "Hola, " + nombre + "Buenvenido a Uñicornio!";
+    });
+});
+
+
+
 const carrito = [];
 
 const servicios =[
