@@ -1,0 +1,68 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uñicornio</title>
+    <link rel="stylesheet" href="./estilo/estilo.css">
+</head>
+<body>
+    <header class="header">
+        <div class="contenedor nav">
+            <a class="link" href="./index.html"><img class="logo" src="./img/fondo.jpg" alt="logo"></a>
+            <h1>Uñicornio </h1>
+        </div>
+        <div class="pedirNombre" id="pedirNombre">
+            <p>Por favor indicame tu nombre para ofrecerte la mejor atención</p>
+        </div>
+    </header>
+    <main class="main">
+        <!--Abre cuadro de nombre-->
+        <section class="contenedorInformacion" data-aos="flip-right">
+            <form id="formulario" class="contenidoNombre">
+                <label for="Nombre"> 
+                    <div class="bg">
+                        Nombre
+                    </div>
+                    <input type="text" id="Nombre" required placeholder="Escribir aquí">
+                </label>
+                <button type="button" id="enviar">Enviar</button>
+            </form>
+        </section>
+        <!--Cierra cuadro nombre-->
+        <!--Abre servicios y carrito-->
+        <section class="servCarr">
+            <section class="contenedor">
+                <h2 class="titulo">Servicios</h2>
+                <h3 class="texto">En nuestra pagina podes elegir el servicios que desees:</h3>
+                <div class="servicios" id="servicios">
+                    <!-- Esto se rellena con JS -->
+                </div>
+            </section>
+            <section class="contenedor">
+                <h2 class="titulo">Turno</h2>
+                <div class="carrito">
+                    <div id="carritoVacio">
+                        <h4>Todavia no elegiste ningun servicio</h4>
+                    </div>
+                    <div class="carritoServicios dNone" id="carritoServicios">
+                        <!-- Esto se rellena con JS -->
+                    </div>
+                    <div class="precioTotal">
+                        <h2>Total: <span id="precioTotal">$0</span></h2>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <!--Cierra servicios y carrito-->
+        <!--Abre footer-->
+    </main>
+    <footer class="footer">
+        <div class="contenedor">
+            <p>Uñicornio Todos los derechos reservados</p>
+        </div>
+    </footer>
+    <!--Cierra footer-->
+    <!--Sript de JS-->
+    <script src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Sedan:ital@0;1&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Lora", serif;
+}
+
+:root {
+    --mimi-pink: rgba(255, 214, 255, 1);
+    --mauve: rgba(231, 198, 255, 1);
+    --mauve-2: rgba(200, 182, 255, 1);
+    --periwinkle: rgba(184, 192, 255, 1);
+    --periwinkle-2: rgba(187, 208, 255, 1);
+}
+
+.contenedor {
+    padding-inline: 1.5rem;
+}
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.logo{
+    width: 100px;
+    border-radius: 10px;
+}
+img {
+    display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+
+.header {
+    background-color: var(--mauve-2);
+    color: var(--mimi-pink);
+    padding-block: 1rem;
+}
+
+.main {
+    padding-block: 2rem; 
+}
+.servCarr{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.titulo {
+    margin-bottom: 1rem;
+}
+
+.texto{
+    margin: 1rem;
+}
+
+.servicios {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 3rem;
+} 
+
+
+.servicio {
+    background-color: var(--mauve);
+    padding: .5rem;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .25rem;
+}
+
+.servicioImg {
+    width: 250px;
+    border-radius: .75rem;
+}
+
+.servicioTexto{
+    margin: 1rem;
+    justify-content: center;
+}
+
+.servicioBtn {
+    border-radius: .75rem;
+    border: 0;
+    background-color: var(--periwinkle-2);
+    color: var(--mauve-2);
+    padding: .5rem;
+    margin-top: .5rem;
+    cursor: pointer;
+    border: 2px solid var(--periwinkle-2);
+    transition: .2s;
+    font-weight: 600;
+}
+
+.servicioBtn:hover {
+    background-color: var(--mimi-pink);
+    color: var(--mauve-2);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.carritoServicios {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.carritoServicio {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--mauve-2);
+    padding: .5rem 1rem;
+    color: var(--mimi-pink);
+}
+
+.carritoServicio-btn {
+    background-color: var(--mimi-pink);
+    border: 0;
+    padding: .25rem;
+    border-radius: .25rem;
+    cursor: pointer;
+}
+
+.dNone {
+    display: none;
+}
+
+.footer {
+    background-color: var(--mauve-2);
+    color: var(--mimi-pink);
+    padding-block: 2rem;
+    display: flex;
+    justify-content: center;
+}
