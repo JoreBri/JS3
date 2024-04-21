@@ -1,10 +1,12 @@
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
 document.addEventListener("DOMContentLoaded", function() {
     const modal = document.getElementById("modal");
     const nombreDelCliente = document.querySelector(".nombreDelCliente");
     const nombreUsuario = localStorage.getItem("nombreUsuario");
 
     if (nombreUsuario) {
-        nombreDelCliente.textContent = `Bienvenido a Uñicornio ${nombreUsuario}.`;
+        nombreDelCliente.textContent = `Hola ${nombreUsuario}, te doy la bienvenida a Uñicornio.`;
     } else {
         modal.style.display = "block";
     }
@@ -17,8 +19,7 @@ function guardarNombre() {
     if (nombre) {
         localStorage.setItem("nombreUsuario", nombre);
         console.log("nombre guardado en storage", nombre);
-        nombreDelCliente.textContent = `Bienvenido a Uñicornio ${nombre}`;
-        cerrarModal();
+        nombreDelCliente.textContent = `Hola ${nombreUsuario}, te doy la bienvenida a Uñicornio.`;
     } else {
         console.log("Ingresa tu nombre");
     }
@@ -29,7 +30,7 @@ function cerrarModal() {
     modal.style.display = "none";
 }
 
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
 
 const servicios =[
     {
