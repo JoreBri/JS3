@@ -17,6 +17,11 @@
 .contenedor {
     padding-inline: 1.5rem;
 }
+.contenedorCarrito{
+    position: fixed;
+    right: 0;
+    bottom: 0; /* Cambiar la posición 20px a la derecha */
+}
 .nav{
     display: flex;
     align-items: center;
@@ -30,13 +35,7 @@ img {
     display: block;
 }
 
-h1, h2, h3, h4, h5, h6, {
-    font-family: "Lora", serif;
-    font-optical-sizing: auto;
-    font-weight: weight;
-    font-style: normal;
-}
-p {
+h1, h2, h3, h4, h5, h6, p {
     font-family: "Lora", serif;
     font-optical-sizing: auto;
     font-weight: weight;
@@ -49,9 +48,38 @@ p {
     padding-block: 1rem;
 }
 
-.main {
-    padding-block: 2rem; 
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
 }
+
+.modal-content {
+    background-color: var(--mimi-pink);
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: var(--mauve-2);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .servCarr{
     display: flex;
     flex-wrap: nowrap;
@@ -65,17 +93,40 @@ p {
     margin: 1rem;
 }
 
+.nombreDelCliente{
+    color: var(--mimi-pink);
+    background-color: var(--mauve-2);
+    padding-inline: 15px;
+    font-size: 30px; /* Tamaño de fuente más grande */
+    font-weight: bold; 
+    border-radius: 25px; 
+    text-align: center;
+    padding: 10px;
+    margin: 15px;
+}
+
 .contenedorInformacion{
     display: flex;
     justify-content: center;
 }
+
+/* .servicios {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 3rem;
+}  */
 
 .servicios {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     margin-bottom: 3rem;
-} 
+}
+.mi-grid img:first-child{
+    grid-column: 1 / span 2;
+    width: 80%;
+}
 
 
 .servicio {
@@ -102,7 +153,7 @@ p {
     border-radius: .75rem;
     border: 0;
     background-color: var(--periwinkle-2);
-    color: var(--mauve-2);
+    color: rgb(139 104 248);
     padding: .5rem;
     margin-top: .5rem;
     cursor: pointer;
@@ -113,7 +164,7 @@ p {
 
 .servicioBtn:hover {
     background-color: var(--mimi-pink);
-    color: var(--mauve-2);
+    color: rgb(139 104 248);
     font-weight: 600;
     letter-spacing: 1px;
 }
@@ -134,7 +185,7 @@ p {
     color: var(--mimi-pink);
 }
 
-.carritoServicio-btn {
+.carritoServicioBtn {
     background-color: var(--mimi-pink);
     border: 0;
     padding: .25rem;

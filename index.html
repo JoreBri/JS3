@@ -6,49 +6,44 @@
     <link rel="stylesheet" href="./estilo/estilo.css">
 </head>
 <body>
+    <!--Abre header-->
     <header class="header">
         <div class="contenedor nav">
             <a class="link" href="./index.html"><img class="logo" src="./img/fondo.jpg" alt="logo"></a>
             <h1>Uñicornio </h1>
         </div>
-        
     </header>
+    <!--Cierra header-->
+    <!--Abre main-->
     <main class="main">
-        <section class="contenedor">
-            <div>
-                <p class="tituloPrincipal texto" id="mensajeBienvenida">
-                    Hola Bienvenido a Uñicornio
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <h2>
+                    Bienvenido a Uñicornio
+                </h2>
+                <p>
+                    Por favor ingresa tu nombre para una mejor atencion
                 </p>
+                <input type="text" id="inputNombre">
+                <button onclick="guardarNombre()">Guardar</button>
             </div>
-        </section>
-        <!--Abre cuadro de nombre-->
-        <section class="contenedor">
-            <div class="pedirNombre" id="pedirNombre">
-                <p class="texto">Por favor indícame tu nombre para ofrecerte la mejor atención</p>
-            </div>
-            <section class="contenedorInformacion pedirNombre" data-aos="flip-right">
-                <form id="formulario" class="contenidoNombre pedirNombre">
-                    <label for="Nombre"> 
-                        <div class="bg">
-                            Nombre
-                        </div>
-                        <input type="text" id="Nombre" required placeholder="Escribir aquí">
-                    </label>
-                    <button type="button" id="enviar">Enviar</button>
-                </form>
-            </section>
-        </section>
+        </div>
+        <!--Se guarda el nombre en el storage-->
+        <div class="nombreDelCliente"> <h2></h2> </div>
         <!--Cierra cuadro nombre-->
         <!--Abre servicios y carrito-->
         <section class="servCarr">
             <section class="contenedor">
-                <h2 class="titulo">Servicios</h2>
-                <h3 class="texto">En nuestra pagina podes elegir el servicios que desees:</h3>
-                <div class="servicios" id="servicios">
-                    <!-- Esto se rellena con JS -->
+                <h2 class="texto">En nuestra pagina podes elegir el servicios que desees:</h2>
+                <h3 class="titulo"> Servicios:</h3class> </h3>
+                <div class="loQueSea">
+                    <div class="servicios" id="servicios">
+                        <!-- Esto se rellena con JS -->
+                    </div>
                 </div>
+                
             </section>
-            <section class="contenedor">
+            <section class="contenedorCarrito">
                 <h2 class="titulo">Turno</h2>
                 <div class="carrito">
                     <div id="carritoVacio">
@@ -59,13 +54,15 @@
                     </div>
                     <div class="precioTotal">
                         <h2>Total: <span id="precioTotal">$0</span></h2>
+                        <button id="botonCompra" class="boton-compra">Adquirir servicios</button>
                     </div>
                 </div>
             </section>
         </section>
         <!--Cierra servicios y carrito-->
-        <!--Abre footer-->
     </main>
+    <!--Cierra main-->
+     <!--Abre footer-->
     <footer class="footer">
         <div class="contenedor">
             <p>Uñicornio Todos los derechos reservados</p>
