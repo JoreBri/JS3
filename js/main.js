@@ -1,14 +1,12 @@
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("enviar").addEventListener("click", function() {
-        // Obtiene el valor del input
-        var nombre = document.getElementById("Nombre").value;
-        
-        // Actualiza el título de la página
-        document.tituloPrincipal = "Hola, " + nombre + "Buenvenido a Uñicornio!";
-    });
+document.getElementById('enviar').addEventListener('click', function() {
+    var nombre = document.getElementById('Nombre').value;
+    var mensajeBienvenida = document.getElementById('mensajeBienvenida');
+    mensajeBienvenida.textContent = 'Hola ' + nombre + ', Bienvenido a Uñicornio';
+    
+    // Ocultar el cuadro de nombre
+    var cuadroNombre = document.getElementById('pedirNombre');
+    cuadroNombre.style.display = 'none';
 });
-
-
 
 const carrito = [];
 
