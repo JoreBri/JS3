@@ -186,7 +186,7 @@ const sumarDelCarrito = (servicio) => {
 }
 const actualizarTotal = () => {
     const total = carrito.reduce((acc, serv) => acc + (serv.precio * serv.cantidad), 0);
-    precioTotal.innerText = `$${total}`;
+    precioTotal.innerText = `$${precioTotal}`;
 }
 
 actualizarCarrito();
