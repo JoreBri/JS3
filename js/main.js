@@ -157,7 +157,6 @@ function actualizarCarrito() {
     }
     calcularNumerito();
     actualizarTotal();
-    localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
 const agregarAlCarrito = (servicio) => {
