@@ -1,5 +1,3 @@
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
 document.addEventListener("DOMContentLoaded", function() {
     const modal = document.getElementById("modal");
     const nombreDelCliente = document.querySelector(".nombreDelCliente");
@@ -19,7 +17,8 @@ function guardarNombre() {
     if (nombre) {
         localStorage.setItem("nombreUsuario", nombre);
         console.log("nombre guardado en storage", nombre);
-        nombreDelCliente.textContent = `Hola ${nombreUsuario}, te doy la bienvenida a Uñicornio.`;
+        nombreDelCliente.textContent = `Hola ${nombre}, te doy la bienvenida a Uñicornio.`;
+        cerrarModal();
     } else {
         console.log("Ingresa tu nombre");
     }
@@ -31,7 +30,7 @@ function cerrarModal() {
 }
 
 
-
+let carrito = [];
 const servicios =[
     {
         titulo: "Manicura Rusa",
@@ -81,7 +80,6 @@ const contenedorServicios = document.querySelector("#servicios");
 const carritoVacio = document.querySelector ("#carritoVacio");
 const carritoServicios = document.querySelector ("#carritoServicios");
 const precioTotal = document.querySelector ("#precioTotal");
-const numerito = document.querySelector("#numerito");
 
 servicios.forEach((servicio) => {
     const div = document.createElement("div");
@@ -104,7 +102,7 @@ servicios.forEach((servicio) => {
     contenedorServicios.append(div);
 });
 
-let botonesAgregar = document.querySelectorAll(".botonAgregar");
+let botonesAgregar = document.querySelectorAll(".servicioBtn");
 botonesAgregar.forEach((boton) => {
     boton.addEventListener("click", (e) => {
         let id = e.target.id;
@@ -190,10 +188,6 @@ const sumarDelCarrito = (servicio) => {
 const actualizarTotal = () => {
     const total = carrito.reduce((acc, serv) => acc + (serv.precio * serv.cantidad), 0);
     precioTotal.innerText = `$${total}`;
-}
-const calcularNumerito = () => {
-    const numeritoTotal = carrito.reduce((acc, prod) => acc + prod.cantidad, 0);
-    numerito.innerText = numeritoTotal;
 }
 
 actualizarCarrito();
