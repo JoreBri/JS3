@@ -170,9 +170,9 @@ const agregarAlCarrito = (servicio) => {
 
 }
 const borrarDelCarrito = (servicio) => {
-    const servIndex = carrito.findIndex(item => item.titulo === servicio.titulo);
-    carrito.splice(servIndex, 1);
-    actualizarCarrito();
+const prodIndex = carrito.findIndex(item => item.titulo === servicio.titulo);
+carrito.splice(prodIndex, 1);
+actualizarCarrito();
 }
 const restarDelCarrito =(servicio) => {
     if (servicio.cantidad !==1){
@@ -186,7 +186,7 @@ const sumarDelCarrito = (servicio) => {
 }
 const actualizarTotal = () => {
     const total = carrito.reduce((acc, serv) => acc + (serv.precio * serv.cantidad), 0);
-    precioTotal.innerText = `$${precioTotal}`;
+    precioTotal.innerText = `$${total}`;
 }
 
 actualizarCarrito();
