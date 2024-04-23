@@ -105,11 +105,11 @@ servicios.forEach((servicio) => {
 let botonesAgregar = document.querySelectorAll(".servicioBtn");
 botonesAgregar.forEach((boton) => {
     boton.addEventListener("click", (e) => {
-        let id = e.target.id;
-        let servicioAsignado = servicios.find(prod => prod.id === id);
+        let titulo = e.target.parentElement.querySelector("h3").innerText;
+        let servicioAsignado = servicios.find(servicio => servicio.titulo === titulo);
         agregarAlCarrito(servicioAsignado);
-    })
-})
+    });
+});
 
 function actualizarCarrito() {
     if (carrito.length === 0) {
@@ -155,38 +155,47 @@ function actualizarCarrito() {
             carritoServicios.append(div);
         })
     }
-    calcularNumerito();
     actualizarTotal();
 }
 
 const agregarAlCarrito = (servicio) => {
+    console.log("Servicio recibido:", servicio);
+    if (!servicio || !servicio.titulo) {
+        console.error("El servicio no tiene un título definido o es undefined.");
+        return;
+    }
+
     const itemEncon = carrito.find(item => item.titulo === servicio.titulo);
     if (itemEncon) {
         itemEncon.cantidad++;
-    } else{
-        carrito.push({...servicio, cantidad: 1});
+    } else {
+        carrito.push({ ...servicio, cantidad: 0 });
     }
     actualizarCarrito();
+}
 
-}
 const borrarDelCarrito = (servicio) => {
-const prodIndex = carrito.findIndex(item => item.titulo === servicio.titulo);
-carrito.splice(prodIndex, 1);
-actualizarCarrito();
-}
+    const prodIndex = carrito.findIndex(item => item.titulo === servicio.titulo);
+    carrito.splice(prodIndex, 1);
+    actualizarCarrito();
+};
+
 const restarDelCarrito =(servicio) => {
     if (servicio.cantidad !==1){
         servicio.cantidad--;
     }
     actualizarCarrito();
-}
+};
+
 const sumarDelCarrito = (servicio) => {
     servicio.cantidad++;
     actualizarCarrito();
-}
+};
+
 const actualizarTotal = () => {
     const total = carrito.reduce((acc, serv) => acc + (serv.precio * serv.cantidad), 0);
     precioTotal.innerText = `$${total}`;
-}
+};
+
 
 actualizarCarrito();
