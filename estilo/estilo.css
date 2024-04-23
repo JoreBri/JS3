@@ -7,7 +7,7 @@
 }
 
 :root {
-    --mimi-pink: rgba(255, 214, 255, 1);
+    --mimi-pink: rgba(177, 143, 207);
     --mauve: rgba(231, 198, 255, 1);
     --mauve-2: rgba(200, 182, 255, 1);
     --periwinkle: rgba(184, 192, 255, 1);
@@ -109,13 +109,6 @@ button {
     display: flex;
     justify-content: center;
 }
-
-/* .servicios {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-bottom: 3rem;
-}  */
 
 .servicios {
     display: grid;
