@@ -128,17 +128,7 @@ servicios.forEach((servicio) => {
 });
 
 // Obtener todos los botones de "Adquirir Servicio" y agregarles eventos de clic
-let botonesAgregar = document.querySelectorAll(".servicioBtn");
-botonesAgregar.forEach((boton) => {
-    boton.addEventListener("click", (e) => {
-        // Obtener el título del servicio correspondiente al botón clickeado
-        let titulo = e.target.parentElement.querySelector("h3").innerText;
-        // Encontrar el objeto de servicio correspondiente al título
-        let servicioAsignado = servicios.find(servicio => servicio.titulo === titulo);
-        // Agregar el servicio al carrito
-        agregarAlCarrito(servicioAsignado);
-    });
-});
+
 
 // Función para actualizar la visualización del carrito
 function actualizarCarrito() {
@@ -212,7 +202,7 @@ const agregarAlCarrito = (servicio) => {
     if (itemEncon) {
         itemEncon.cantidad++; // Si está en el carrito, aumentar la cantidad
     } else {
-        carrito.push({ ...servicio, cantidad: 0}); // Si no está en el carrito, agregarlo con cantidad 1
+        carrito.push({ ...servicio, cantidad: 1}); // Si no está en el carrito, agregarlo con cantidad 1
     }
     actualizarCarrito(); // Actualizar la visualización del carrito
 }
