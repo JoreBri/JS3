@@ -20,7 +20,10 @@
 .contenedorCarrito{
     position: fixed;
     right: 0;
-    bottom: 0; /* Cambiar la posición 20px a la derecha */
+    bottom: 120; /* Cambiar la posición 20px a la derecha */
+    background-color: var(--periwinkle-2);
+    border-radius: 10px;
+    padding: .5rem 1rem;
 }
 .nav{
     display: flex;
@@ -167,16 +170,19 @@ button {
     display: flex;
     flex-direction: column;
     gap: .5rem;
+    
 }
 
 .carritoServicio {
     display: flex;
+    flex-direction: column;
     gap: 1rem;
     align-items: center;
     justify-content: space-between;
     background-color: var(--mauve-2);
     padding: .5rem 1rem;
-    color: var(--mimi-pink);
+    border-radius: 5px;
+    color: rgb(0 0 0);
 }
 
 .carritoServicioBtn {
