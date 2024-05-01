@@ -47,7 +47,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 .header {
     background-color: var(--mauve-2);
-    color: var(--mimi-pink);
+    color: black;
     padding-block: 1rem;
 }
 
@@ -97,7 +97,7 @@ button {
 }
 
 .nombreDelCliente{
-    color: var(--mimi-pink);
+    color: black;
     background-color: var(--mauve-2);
     padding-inline: 15px;
     font-size: 30px; /* Tamaño de fuente más grande */
