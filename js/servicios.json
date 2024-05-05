@@ -1,0 +1,44 @@
+[
+    {
+        "titulo": "Manicura Rusa",
+        "precio": 9000,
+        "img": "./img/manicuraRusa.jpg",
+        "texto": "Experimenta el cuidado clásico y la elegancia con nuestra manicura rusa. Perfecta para mantener tus uñas impecables en todo momento"
+    },
+    {
+        "titulo": "Esmaltado Semipermanente Liso",
+        "precio": 10000,
+        "img": "./img/semiLiso.jpg",
+        "texto": "Disfruta de un esmaltado duradero y brillante que te acompañará por semanas. Nuestra amplia variedad de colores te permitirá expresar tu estilo único"
+    },
+    {
+        "titulo": "Esmaltado Semipermanente con Diseño",
+        "precio": 10500,
+        "img": "./img/esmaltadoSemiLiso.jpg",
+        "texto": "Disfruta de un esmaltado duradero y brillante que te acompañará por semanas. Eligiendo el diseño que perfecto para tu estilo único"
+    },
+    {
+        "titulo": "Capping Liso",
+        "precio": 11000,
+        "img": "./img/cappingLiso.jpg",
+        "texto": "Tratamiento especializado para fortalecer y nutrir tus uñas, dejándolas saludables y radiantes en los colores que mas te gusten"
+    },
+    {
+        "titulo": "Capping con diseño",
+        "precio": 11500,
+        "img": "./img/cappingDiseño.jpg",
+        "texto": "Tratamiento especializado para fortalecer y nutrir tus uñas, dejándolas saludables y radiantes. Con el diseño que mas te guste"
+    },
+    {
+        "titulo": "Esculpidas Lisas",
+        "precio": 13000,
+        "img": "./img/esculpidasLisas.jpg",
+        "texto": "Transforma tus uñas con nuestra técnica de escultura. Obtén uñas fuertes y hermosas con formas y longitudes personalizadas"
+    },
+    {
+        "titulo": "Esculpidas con diseño",
+        "precio": 13500,
+        "img": "./img/esculpidasDiseño.jpg",
+        "texto": "Transforma tus uñas con nuestra técnica de escultura. Obtén uñas fuertes y hermosas con formas y longitudes personalizadas"
+    }
+]
