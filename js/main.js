@@ -45,16 +45,52 @@ function cerrarModal() {
     modal.style.display = "none";
 }
 
-
-// Definición del array que almacenar los elementos del carrito
+// Array para almacenar los elementos del carrito
 let carrito = [];
 
-fetch("./js/servicios.js")
-    .then(response => response.json())
-    .then (data => {
-        servicios = data;
-        carritoServicios(servicios);
-    })
+// Función para cargar los elementos del carrito desde el almacenamiento local
+const cargarCarritoDesdeLocalStorage = () => {
+    const carritoGuardado = localStorage.getItem("carrito");
+    if (carritoGuardado) {
+        carrito = JSON.parse(carritoGuardado);
+        actualizarCarrito(); // Llamar a la función para actualizar la visualización del carrito
+    }
+};
+
+// Función para guardar los elementos del carrito en el almacenamiento local
+const guardarCarritoEnLocalStorage = () => {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+};
+
+// Cargar el carrito desde el almacenamiento local al cargar la página
+document.addEventListener("DOMContentLoaded", () => {
+    cargarCarritoDesdeLocalStorage();
+});
+
+// Función para agregar un servicio al carrito
+// Función para agregar un servicio al carrito
+const agregarAlCarrito = (servicio) => {
+    console.log("Servicio recibido:", servicio);
+    // Verificar si el servicio recibido está definido y tiene un título
+    if (!servicio || !servicio.titulo) {
+        console.error("El servicio no tiene un título definido o es undefined.");
+        return;
+    }
+
+    // Buscar si el servicio ya está en el carrito
+    const itemEncon = carrito.find(item => item.titulo === servicio.titulo);
+    if (itemEncon) {
+        // Si está en el carrito, incrementar la cantidad y actualizar el carrito
+        itemEncon.cantidad++;
+    } else {
+        // Si no está en el carrito, agregarlo con cantidad 1
+        carrito.push({ ...servicio, cantidad: 1});
+    }
+    actualizarCarrito(); // Actualizar la visualización del carrito
+    guardarCarritoEnLocalStorage(); // Guardar el carrito en el almacenamiento local
+};
+
+// Resto de tu código para manejar el carrito...
 
 // Elementos del DOM
 const contenedorServicios = document.querySelector("#servicios");
@@ -62,31 +98,41 @@ const carritoVacio = document.querySelector("#carritoVacio");
 const carritoServicios = document.querySelector("#carritoServicios");
 const precioTotal = document.querySelector("#precioTotal");
 
-// Elementos de los servicios y botones de "Adquirir Servicio"
-servicios.forEach((servicio) => {
-    const div = document.createElement("div");
-    div.classList.add("servicio");
-    div.innerHTML = `
-    <h3>${servicio.titulo}</h3>
-    <img class="servicioImg" src="${servicio.img}" alt="${servicio.titulo}">
-    <p class="servicioTexto">${servicio.texto}.</p>
-    <p>$${servicio.precio}</p>`;
+// Función para cargar los servicios y mostrarlos en el DOM
+const cargarServicios = (servicios) => {
+    servicios.forEach((servicio) => {
+        const div = document.createElement("div");
+        div.classList.add("servicio");
+        div.innerHTML = `
+        <h3>${servicio.titulo}</h3>
+        <img class="servicioImg" src="${servicio.img}" alt="${servicio.titulo}">
+        <p class="servicioTexto">${servicio.texto}.</p>
+        <p>$${servicio.precio}</p>`;
 
-    const btn = document.createElement("button");
-    btn.classList.add("servicioBtn");
-    btn.innerText = "Adquirir Servicio";
+        const btn = document.createElement("button");
+        btn.classList.add("servicioBtn");
+        btn.innerText = "Adquirir Servicio";
 
-    // Agregar evento de clic para agregar al carrito al hacer clic en el botón
-    btn.addEventListener("click", () => {
-        agregarAlCarrito(servicio);
+        // Agregar evento de clic para agregar al carrito al hacer clic en el botón
+        btn.addEventListener("click", () => {
+            agregarAlCarrito(servicio);
+        });
+
+        // Agregar el botón al div del servicio
+        div.append(btn);
+
+        // Agregar el div del servicio al contenedor de servicios
+        contenedorServicios.append(div);
     });
+};
 
-    // Agregar el botón al div del servicio
-    div.append(btn);
-
-    // Agregar el div del servicio al contenedor de servicios
-    contenedorServicios.append(div);
-});
+// Cargar los servicios mediante fetch
+fetch("./js/servicios.json")
+    .then(response => response.json())
+    .then(servicios => {
+        cargarServicios(servicios);
+    })
+    .catch(error => console.error('Error al cargar los servicios:', error));
 
 // Obtener todos los botones de "Adquirir Servicio" y agregarles eventos de clic
 
@@ -148,26 +194,6 @@ function actualizarCarrito() {
     actualizarTotal();
 }
 
-
-// Función para agregar un servicio al carrito
-const agregarAlCarrito = (servicio) => {
-    console.log("Servicio recibido:", servicio);
-    // Verificar si el servicio recibido está definido y tiene un título
-    if (!servicio || !servicio.titulo) {
-        console.error("El servicio no tiene un título definido o es undefined.");
-        return;
-    }
-
-    // Buscar si el servicio ya está en el carrito
-    const itemEncon = carrito.find(item => item.titulo === servicio.titulo);
-    if (itemEncon) {
-        itemEncon.cantidad++; // Si está en el carrito, aumentar la cantidad
-    } else {
-        carrito.push({ ...servicio, cantidad: 1}); // Si no está en el carrito, agregarlo con cantidad 1
-    }
-    actualizarCarrito(); // Actualizar la visualización del carrito
-}
-
 // Función para borrar un servicio del carrito
 const borrarDelCarrito = (servicio) => {
     const prodIndex = carrito.findIndex(item => item.titulo === servicio.titulo);
@@ -207,10 +233,12 @@ btnComprar.addEventListener("click", () => {
 // Función para vaciar el carrito
 function vaciarCarrito() {
     carrito = []; // Vaciar el array de carrito
+    localStorage.removeItem("carrito"); // Eliminar los datos del carrito del almacenamiento local
     actualizarCarrito(); // Actualizar la visualización del carrito
 
-    // Mostrar un mensaje de agradecimiento
-    const mensajeAgradecimiento = document.getElementById("mensajeAgradecimiento");
+    // Ocultar el carrito vacío y mostrar el mensaje de agradecimiento
+    carritoVacio.classList.add("dNone");
+    carritoServicios.classList.add("dNone");
     mensajeAgradecimiento.innerHTML = `<h3>¡Muchas gracias por tu compra! ¡Te esperamos!🦄</h3>`;
     mensajeAgradecimiento.style.display = "block"; // Mostrar el mensaje de agradecimiento
 
@@ -219,6 +247,8 @@ function vaciarCarrito() {
         mensajeAgradecimiento.style.display = "none"; // Ocultar el mensaje después de 3 segundos (3000 milisegundos)
     }, 3000);
 }
+
+
 
 // Función inicial para actualizar la visualización del carrito
 actualizarCarrito();
