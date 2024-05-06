@@ -239,6 +239,7 @@ function vaciarCarrito() {
     // Ocultar el carrito vacío y mostrar el mensaje de agradecimiento
     carritoVacio.classList.add("dNone");
     carritoServicios.classList.add("dNone");
+    vacio.classList.add("dNone");
     mensajeAgradecimiento.innerHTML = `<h3>¡Muchas gracias por tu compra! ¡Te esperamos!🦄</h3>`;
     mensajeAgradecimiento.style.display = "block"; // Mostrar el mensaje de agradecimiento
 
@@ -249,6 +250,3 @@ function vaciarCarrito() {
 }
 
 
-
-// Función inicial para actualizar la visualización del carrito
-actualizarCarrito();
