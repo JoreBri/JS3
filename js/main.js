@@ -68,8 +68,22 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Función para agregar un servicio al carrito
-// Función para agregar un servicio al carrito
 const agregarAlCarrito = (servicio) => {
+    Toastify({
+        text: "Servicio añadido",
+        duration: 3000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        gravity: "top", // `top` or `bottom`
+        position: "left", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "linear-gradient(to right, rgba(187, 208, 255, 1), rgba(200, 182, 255, 1))",
+            borderRadius: "2rem",
+            fontSize: "1rem"
+        },
+        onClick: function(){} // Callback after click
+        }).showToast();
     console.log("Servicio recibido:", servicio);
     // Verificar si el servicio recibido está definido y tiene un título
     if (!servicio || !servicio.titulo) {
